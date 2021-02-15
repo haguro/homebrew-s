@@ -28,10 +28,9 @@ class Go < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "142cd5c1aaec872347771022567305de891bcfd3d5563bc66860f35f2416a1a0"
-    sha256 big_sur:       "f9fafcc83029a1f568e586a8acbd95834d35b03153d6de8f9b52db97313c65d0"
-    sha256 catalina:      "591f8cb8670af19adffa3917416c36d0222f0010f078851f452f8ac0305f4558"
-    sha256 mojave:        "61e4f758c48b7b6cf5d302328bf34d72be2316606d1f93f4152934b874319c84"
+    root_url "https://github.com/haguro/homebrew-s/releases/download/go-1.15.8_1"
+    sha256 catalina:     "ff602821b1f49251bc025d9e5a0a9f92f24ba1b75438fe35a91405f032ba175b"
+    sha256 x86_64_linux: "73945ad7de86e16307d8745d414375db577d5acca06697a2e206319e825956b0"
   end
 
   head do
