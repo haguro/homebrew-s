@@ -5,20 +5,12 @@ class Go < Formula
   revision 1
 
   stable do
-    if Hardware::CPU.arm?
-      url "https://golang.org/dl/go1.16rc1.src.tar.gz"
-      sha256 "6a33569f9d0d21db31614086cc2a4f0fbc683b41c1c53fb512a1341ce5763ff5"
-      version "1.15.8"
-    else
-      url "https://golang.org/dl/go1.15.8.src.tar.gz"
-      mirror "https://fossies.org/linux/misc/go1.15.8.src.tar.gz"
-      sha256 "540c0ab7781084d124991321ed1458e479982de94454a98afab6acadf38497c2"
-    end
+    url "https://golang.org/dl/go1.16.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.16.src.tar.gz"
+    sha256 "7688063d55656105898f323d90a79a39c378d86fe89ae192eb3b7fc46347c95a"
 
-    go_version = version.major_minor
     resource "gotools" do
-      url "https://go.googlesource.com/tools.git",
-          branch: "release-branch.go#{go_version}"
+      url "https://go.googlesource.com/tools.git"
     end
   end
 
@@ -45,8 +37,8 @@ class Go < Formula
   resource "gobootstrap" do
     on_macos do
       if Hardware::CPU.arm?
-        url "https://storage.googleapis.com/golang/go1.16beta1.darwin-arm64.tar.gz"
-        sha256 "fd57f47987bb330fd9b438e7b4c8941b63c3807366602d99c1d99e0122ec62f1"
+        url "https://storage.googleapis.com/golang/go1.16.darwin-arm64.tar.gz"
+        sha256 "4dac57c00168d30bbd02d95131d5de9ca88e04f2c5a29a404576f30ae9b54810"
       else
         url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
         sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
@@ -84,19 +76,6 @@ class Go < Formula
       (libexec/"bin").install "godoc"
     end
     bin.install_symlink libexec/"bin/godoc"
-  end
-
-  def caveats
-    s = ""
-
-    if Hardware::CPU.arm?
-      s += <<~EOS
-        This is a release candidate version of the Go compiler for Apple Silicon
-        (Go 1.16rc1).
-      EOS
-    end
-
-    s
   end
 
   test do
