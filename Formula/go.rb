@@ -20,9 +20,8 @@ class Go < Formula
   end
 
   bottle do
-    root_url "https://github.com/haguro/homebrew-s/releases/download/go-1.15.8_1"
-    sha256 catalina:     "ff602821b1f49251bc025d9e5a0a9f92f24ba1b75438fe35a91405f032ba175b"
-    sha256 x86_64_linux: "73945ad7de86e16307d8745d414375db577d5acca06697a2e206319e825956b0"
+    root_url "https://github.com/haguro/homebrew-s/releases/download/go-1.16_1"
+    sha256 catalina: "8cf8b417aec1742d17a3201c6fe40e5fe8823e20e12be02472222ad8407a9c09"
   end
 
   head do
